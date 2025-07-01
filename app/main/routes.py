@@ -29,7 +29,7 @@ def feed():
 def vote(post_id, action):
     post = Post.query.get_or_404(post_id)
     value = 1 if action == 'up' else -1
-    vote = Vote.query.filter_by(user=current_user, post=post).first()
+    vote = Vote.query.filter_by(user_id=current_user.id, post_id=post.id).first()
     if vote:
         if vote.value == value:
             db.session.delete(vote)
