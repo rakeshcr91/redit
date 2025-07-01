@@ -1,0 +1,12 @@
+<div class="bg-white p-4 rounded shadow mb-4">
+  <div class="flex items-center justify-between">
+    <p class="text-gray-800">{{ post.body }}</p>
+    <div>
+      <a href="{{ url_for('main.vote', post_id=post.id, action='up') }}" class="mr-2">⬆️</a>
+      <span>{{ post.score }}</span>
+      <a href="{{ url_for('main.vote', post_id=post.id, action='down') }}" class="ml-2">⬇️</a>
+    </div>
+  </div>
+  {% if post.url %}<a href="{{ post.url }}" class="text-blue-500" target="_blank">{{ post.url }}</a>{% endif %}
+  <div class="text-sm text-gray-500">Posted by {{ post.author.username }} on {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+</div>
