@@ -1,0 +1,14 @@
+<nav class="bg-white p-4 shadow">
+  <div class="container mx-auto flex justify-between">
+    <a href="{{ url_for('main.feed') }}" class="font-bold">Community Portal</a>
+    <div>
+      {% if current_user.is_authenticated %}
+        <span class="mr-2">Logged in as {{ current_user.username }}</span>
+        <a href="{{ url_for('auth.logout') }}" class="text-blue-500">Logout</a>
+      {% else %}
+        <a href="{{ url_for('auth.login') }}" class="text-blue-500 mr-2">Login</a>
+        <a href="{{ url_for('auth.register') }}" class="text-blue-500">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>

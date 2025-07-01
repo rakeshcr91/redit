@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% from '_macros/form_macros.html' import render_field %}
+{% block content %}
+<h1 class="text-2xl mb-4">Feed</h1>
+<form method="post" class="mb-6">
+  {{ form.hidden_tag() }}
+  {{ render_field(form.body) }}
+  {{ render_field(form.url) }}
+  {{ form.submit(class_='bg-blue-500 text-white px-4 py-2') }}
+</form>
+{% for post in posts %}
+  {% include '_partials/post_card.html' %}
+{% else %}
+  <p>No posts yet.</p>
+{% endfor %}
+{% endblock %}
