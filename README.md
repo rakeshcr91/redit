@@ -15,6 +15,8 @@ This is a simple Reddit-style community portal built with Flask. Features includ
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+# If you see module import errors, ensure you activated the
+# virtual environment and installed the dependencies above.
 ```
 
 2. Initialize the database:
@@ -31,12 +33,7 @@ flask --app wsgi db upgrade
 flask --app wsgi run
 ```
 
-Tailwind CSS can be built using npm:
-
-```bash
-npm install
-npm run build
-```
+The UI uses Tailwind CSS via CDN so no build step is required.
 
 ## Environment Variables
 
